@@ -2,8 +2,17 @@ package com.han.popuptest;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
+
+import java.lang.annotation.Annotation;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,5 +34,23 @@ public class PopupDialog extends Dialog {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.popup_dialog_layout);
         ButterKnife.bind(this);
+        settingWebview();
+        popWebview.loadUrl("https://lolchess.gg/cheatsheet");
     }
+
+    public void settingWebview(){
+        popWebview.setWebChromeClient(new DialogWebviewChromeClient());
+        popWebview.setWebViewClient(new DialogWebviewClient());
+        popWebview.addJavascriptInterface(new JavascriptController(),"CustomSchema");
+        WebSettings settings =popWebview.getSettings();
+        settings.setJavaScriptEnabled(true);
+    }
+
+    class JavascriptController {
+        @JavascriptInterface
+        public void javascriptController(){
+
+        }
+    }
+
 }

@@ -1,8 +1,12 @@
 package com.han.popuptest;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityOptionsCompat;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.Toast;
 
 import butterknife.BindView;
@@ -10,6 +14,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
+    @BindView(R.id.button2)
+    Button button2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +26,9 @@ public class MainActivity extends AppCompatActivity {
         new PopupDialog(this).show();
     }
     @OnClick(R.id.button2) public void clickButton2(){
-        makeToast();
+        Intent intent = new Intent(this,PopupActivity.class);
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, button2, "myTransition");
+        startActivity(intent,options.toBundle());
     }
     @OnClick(R.id.button3) public void clickButton3(){
         makeToast();
