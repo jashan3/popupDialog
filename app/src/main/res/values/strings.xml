@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">popupTest</string>
+    <string name="button1">BUTTON 1</string>
+    <string name="button2">BUTTON 2</string>
+    <string name="button3">BUTTON 3</string>
+    <string name="button4">BUTTON 4</string>
+    <string name="button5">BUTTON 5</string>
+    <string name="button6">BUTTON 6</string>
+    <string name="button7">BUTTON 7</string>
+    <string name="toolbarTitle">TOOLBAR TITLE</string>
+</resources>
