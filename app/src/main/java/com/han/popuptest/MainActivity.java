@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     }
     @OnClick(R.id.button1) public void clickButton1(){
         new PopupDialog(this).show();
+
     }
     @OnClick(R.id.button2) public void clickButton2(){
         Intent intent = new Intent(this,PopupActivity.class);
